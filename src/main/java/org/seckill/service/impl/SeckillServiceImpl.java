@@ -56,7 +56,7 @@ public class SeckillServiceImpl implements SeckillService{
 				redisDao.putSeckill(seckill);
 			}
 		}
-		return seckillDao.queryById(seckillId);
+		return seckill;
 	}
 
 	public Exposer exportSeckillUrl(long seckillId) {
