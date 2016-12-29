@@ -49,6 +49,13 @@ public class SeckillServiceImpl implements SeckillService{
 	}
 
 	public Seckill getById(long seckillId) {
+		Seckill seckill = redisDao.getSeckill(seckillId);
+		if(seckill==null){
+			seckill = seckillDao.queryById(seckillId);
+			if(seckill!=null){
+				redisDao.putSeckill(seckill);
+			}
+		}
 		return seckillDao.queryById(seckillId);
 	}
 

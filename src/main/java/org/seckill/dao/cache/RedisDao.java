@@ -28,7 +28,7 @@ public class RedisDao {
 			try {
 				String key = "seckill:"+seckillId;
 				//并没有实现序列化
-				//get->byte[]->反序列化->Object(Seckill)
+				//get：byte[]->反序列化->Object(Seckill)
 				//采用自定义序列化
 				//protostuff:pojo
 				byte[] bytes = jedis.get(key.getBytes());//对象存在redis中为二进制的
